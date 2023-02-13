@@ -1,13 +1,13 @@
-var express = require ('express');
+var express = require('express');
 var app = express();
 
-app.get('/', function (req, res){
-    res.send('You have successfully created your second app!');
-})
+const port = 2001;
+const host = 'localhost';
 
-var server = app.listen(2001, function(){
-    var host = server.address().address
-    var port = server.address().port
+app.get('/', function (request, response) {
+  response.send('You have successfully created your second app!');
+});
 
-    console.log("Example app listening at http://%s:%s", host , port)
-})
+app.listen(port, host, () => {
+  console.log(`Example app listening at http://%s:%s`, host, port);
+});
