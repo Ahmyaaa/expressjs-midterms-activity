@@ -10,7 +10,7 @@ app.get('/index', (req, res) => {
 app.get('/blog', (req, res) => {
   res.sendFile(__dirname + '/' + 'blog.html');
 });
-
+sad;
 app.get('/about', (req, res) => {
   res.sendFile(__dirname + '/' + 'about.html');
 });
@@ -23,8 +23,8 @@ app.get('/contact', (req, res) => {
   res.sendFile(__dirname + '/' + 'contact.html');
 });
 
-app.get('*', function (req, res) {
-  res.status(404).send('Sorry, page not found');
+app.all('*', (req, res) => {
+  res.status(404).send('<h1>Error 404 page not found.</h1>');
 });
 
 const port = process.env.PORT || 3000;
