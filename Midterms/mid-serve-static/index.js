@@ -23,8 +23,8 @@ app.get('/contact', (req, res) => {
   res.sendFile(__dirname + '/' + 'contact.html');
 });
 
-app.use(function (req, res, next) {
-  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+app.all('*', (req, res) => {
+  res.status(404).send('<h1>Error 404 page not found.</h1>');
 });
 
 const port = process.env.PORT || 3000;
